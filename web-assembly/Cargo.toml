@@ -1,7 +1,7 @@
 [package]
 name = "web-assembly"
 version = "0.1.0"
-authors = ["ABraun <abraun@cainc.com>"]
+authors = ["Alex Braun <braunacb@gmail.com>"]
 edition = "2018"
 
 [lib]

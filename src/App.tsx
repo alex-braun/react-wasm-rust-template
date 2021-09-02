@@ -6,14 +6,12 @@ function App() {
   const [fooStruct, setFooStruct] = useState<any>(null);
 
   const handleIncrement = () => {
-    const current = fooStruct.get();
-    fooStruct.set(current + 1);
+    fooStruct.set(number + 1);
     setNumber(fooStruct.get());
   }
 
   const handleDecrement = () => {
-    const current = fooStruct.get();
-    fooStruct.set(current - 1);
+    fooStruct.set(number - 1);
     setNumber(fooStruct.get());
   }
 

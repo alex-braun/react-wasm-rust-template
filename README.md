@@ -8,7 +8,7 @@ There are two steps you'll need to get up and running:\
 * [Follow directions here](https://www.rust-lang.org/tools/install) to setup the Rust toolchain for development.
 * Then, you'll need to setup [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/).  wasm-pack allows you to build, test, and publish Rust-generated WebAssembly components.
 
-All user editable wasm code can be found in the `web-assembly` directory.  This folder is watched by webpack, so any updates will automatically trigger a re-compile and deploy the new code in `/src/compiled-wasm`.  The contents of `compiled-wasm` is auto-generated so you should not be editing it directly.
+All user editable wasm code can be found in the `web-assembly` directory.  This folder is watched by webpack, so any updates will automatically trigger compilation and deploy the new code in `/src/compiled-wasm`.  The contents of `compiled-wasm` is auto-generated so you should not be editing it directly.
 
 [Create React App](https://github.com/facebook/create-react-app)\
 [Rust](https://www.rust-lang.org)\
@@ -25,9 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits to the src and web-assembly directories.\
 
-The first time this script runs, you will see a `compiled-wasm` directory auto generate in `src`.  The contents of this folder should not be edited.  Programming Rust should be from the `web-assembly` directory only, and will re-compile on save.
-
-You will also see any lint errors in the console.
+The first time this script runs, you will see a `compiled-wasm` directory auto generate in `src`. Programming Rust should be from the `web-assembly` directory only, and will compile into `compiled-wasm` on save.
 
 ### `yarn test`
 
