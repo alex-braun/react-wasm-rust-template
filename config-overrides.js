@@ -1,4 +1,5 @@
 const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
+const WorkerPlugin = require('worker-plugin')
 const path = require('path');
 
 module.exports = function override(config, env) {
@@ -19,7 +20,14 @@ module.exports = function override(config, env) {
     new WasmPackPlugin({
      crateDirectory: path.resolve(__dirname, "web-assembly"),
      outDir: path.resolve(__dirname, "src/compiled-wasm"),
-    })
+    }),
+  //  // Uncomment if you need to access web assembly in the public folder
+  //   new WasmPackPlugin({
+  //    crateDirectory: path.resolve(__dirname, "web-assembly"),
+  //    extraArgs: "--target web",
+  //    outDir: path.resolve(__dirname, "public/compiled-wasm"),
+  //   }),
+    new WorkerPlugin(),
   );
   return config;
 }
