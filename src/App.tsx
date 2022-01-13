@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import WorkerUtils from './WorkerUtils';
 import './App.css';
+
+const workerUtils = new WorkerUtils();
 
 function App() {
   const [number, setNumber] = useState(0);
-  const [fooStruct, setFooStruct] = useState<any>(null);
 
-  const handleIncrement = () => {
-    fooStruct.set(number + 1);
-    setNumber(fooStruct.get());
-  }
+  const onValueCallback = (value: any) => setNumber(value);
 
-  const handleDecrement = () => {
-    fooStruct.set(number - 1);
-    setNumber(fooStruct.get());
-  }
+  const handleIncrement = () => workerUtils.setValue(1);
 
+  const handleDecrement = () => workerUtils.setValue(-1);
 
   useEffect(() => {
-    import("./compiled-wasm").then(module => {
-      const { Foo } = module;
-      setFooStruct(Foo.new(0));
-    });
+    workerUtils.init(onValueCallback)
   }, []);
 
   return (

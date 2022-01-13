@@ -4,7 +4,8 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "webworker"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -21,6 +22,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src", "web-assembly",
+    "src",
+    "web-assembly",
   ],
 }
